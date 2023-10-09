@@ -5,16 +5,14 @@ const tweetSchema = new mongoose.Schema(
     content: {
       type: String,
       required: true,
+      max:[300,"Tweet can not be more than 300 characters!!"]
     },
-    userEmail: {
-      type: String,
-    },
-    comments: [
+    hashtags:[
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
-      },
-    ],
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Hashtag"
+      }
+    ]
   },
   { timestamps: true }
 );
